@@ -1,0 +1,15 @@
+{
+  "name": "nodetuto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index_node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependences": {
+    "fastify": "> 11"
+  },
+  "keywords": [],
+  "author": "tchine",
+  "license": "ISC"
+}
