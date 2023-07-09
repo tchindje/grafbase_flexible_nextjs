@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
         {
           ...token,
           iss: "grafbase",
-          exp: Math.floor(Date.now() / 1000) + 60 * 60,
+          exp: Math.floor(Date.now() / 1000) + 600 * 600 * 60,
         },
         secret
       );
@@ -36,16 +36,11 @@ export const authOptions: NextAuthOptions = {
 
   theme: {
     colorScheme: "light",
-    logo: ".logo.png",
+    logo: "/logo.svg",
   },
 
   callbacks: {
     async session({ session }) {
-      console.log(
-        "log session dans le callback de authOptions object ",
-        session
-      );
-
       // a session object returned by Auth Provider contains :
       // email, name, image in user object
       const email = session?.user?.email as string;
@@ -62,8 +57,6 @@ export const authOptions: NextAuthOptions = {
           },
         };
 
-        console.log("Information de la session ", newSession);
-
         return newSession;
       } catch (error) {
         console.log("Error retreiving user data : ", error);
@@ -79,7 +72,7 @@ export const authOptions: NextAuthOptions = {
         };
 
         //if don't exist create them
-        if (!userExist.user) {
+        if (!userExist?.user) {
           await createUser(
             user.name as string,
             user.email as string,

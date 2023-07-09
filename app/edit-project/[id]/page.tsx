@@ -5,20 +5,18 @@ import { redirect } from "next/navigation";
 
 import React from "react";
 
-const CreateProject = async () => {
+const EditProject = async () => {
   //get current user session
   const session = await getCurrentUser();
-
-  // console.log("session information", session);
 
   if (!session?.user) redirect("/"); //user didn't signIn
 
   return (
     <Modal>
-      <h3 className='modal-head-text'>Create a New Project</h3>
+      <h3 className='modal-head-text'>Edit Project</h3>
       <ProjectForm type='create' session={session} />
     </Modal>
   );
 };
 
-export default CreateProject;
+export default EditProject;

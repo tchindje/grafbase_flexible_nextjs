@@ -29,6 +29,8 @@ export interface UserProfile {
   id: string;
   description: string | null;
   avatarUrl: string;
+  name: string;
+  email: string;
   githubUrl: string | null;
   linkedinUrl: string | null;
   projects: {
